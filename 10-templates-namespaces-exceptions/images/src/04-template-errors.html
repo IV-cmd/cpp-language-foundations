@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">A template still has to compile for the type you give it</div>
+<table class="t"><tr><th>Call</th><th>What goes wrong</th><th>GCC says</th></tr><tr><td><code>findMaximum(10, 20.5)</code></td><td><code>T</code> can't be both int and double</td><td>deduced conflicting types for parameter 'T' ('int' and 'double')</td></tr><tr><td><code>findMaximum(StorageNode{1}, StorageNode{2})</code></td><td>the body uses <code>a &gt; b</code>, StorageNode has no <code>&gt;</code></td><td>no match for 'operator&gt;' (operand types are 'StorageNode' and 'StorageNode')</td></tr></table>
+<div class="caption">The second error points inside the template, not at the call, which is why template errors get long. C++20 concepts (<code>template &lt;std::totally_ordered T&gt;</code>) let you state the requirement up front so the error lands on the call.</div>
+</div>

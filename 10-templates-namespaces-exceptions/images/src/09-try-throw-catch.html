@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">try / throw / catch</div>
+<div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">try block</div><div class="small">call <code>divide(10, 0)</code></div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell red" style="flex:1;min-width:0px"><div class="big">throw</div><div class="small"><code>std::runtime_error("division by zero")</code></div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">catch block</div><div class="small"><code>catch (const std::exception&amp; e)</code> prints <code>error: division by zero</code></div></div></div>
+<div class="caption">After the <code>throw</code>, nothing else in <code>divide</code> or the rest of the try block runs. Execution jumps to the matching catch.</div>
+</div>

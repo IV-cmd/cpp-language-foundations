@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">One class template, separate types</div>
+<div class="cols compact"><div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>StorageContainer&lt;int&gt;</code></div><div class="small"><code>T data;</code> is an int</div></div></div><div class="sub">sizeof = 4</div></div><div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>StorageContainer&lt;std::string&gt;</code></div><div class="small"><code>T data;</code> is a std::string</div></div></div><div class="sub">sizeof = 32</div></div></div>
+<div class="caption">They come from the same template but are unrelated types: you can't assign one to the other, and each has its own layout.</div>
+</div>

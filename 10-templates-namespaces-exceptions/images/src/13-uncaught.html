@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">No handler anywhere: <code>std::terminate()</code></div>
+<table class="t"><tr><th></th><th>Caught in main</th><th>Never caught</th></tr><tr><td>What happens</td><td>unwinding, then the catch block runs</td><td><code>std::terminate()</code> → <code>abort()</code></td></tr><tr><td>Local destructors</td><td><span class="pill ok">run</span></td><td><span class="pill">didn't run</span> in my GCC build</td></tr><tr><td>Output</td><td>caught in main: disk read failed</td><td>terminate called after throwing an instance of 'std::runtime_error'<br>what(): disk read failed</td></tr><tr><td>Exit status</td><td>0</td><td>134 (128 + SIGABRT 6)</td></tr></table>
+<div class="caption">Whether the stack is unwound before terminate is up to the implementation, and GCC doesn't. So RAII cleanup only happens if someone catches the exception. Programs need a deliberate top-level catch.</div>
+</div>

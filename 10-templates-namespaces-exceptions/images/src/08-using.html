@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Ways to refer to a name in a namespace</div>
+<table class="t"><tr><th>Code</th><th>Brings in</th><th>Risk</th></tr><tr><td><code>std::cout</code></td><td>nothing, fully qualified</td><td>none</td></tr><tr><td><code>using std::cout;</code></td><td>one name</td><td>low</td></tr><tr><td><code>using namespace std;</code> in a <code>.cpp</code></td><td>every name in std</td><td>names can clash with yours</td></tr><tr><td><code>using namespace std;</code> in a header</td><td>every name in std, in every file that includes it</td><td>avoid</td></tr><tr><td><code>using namespace Storage;</code> + <code>using namespace Metadata;</code></td><td>both <code>connect</code>s</td><td><span class="pill">error</span> call of overloaded 'connect()' is ambiguous</td></tr></table>
+
+</div>

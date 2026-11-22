@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">One small interface, most of Phase 1</div>
+<table class="t"><tr><th>Piece of code</th><th>Module</th></tr><tr><td><code>class StorageNode { public: …</code></td><td>7: classes and access control</td></tr><tr><td><code>virtual void write(…) = 0;</code></td><td>9: pure virtual function, abstract class</td></tr><tr><td><code>const std::vector&lt;char&gt;&amp; data</code></td><td>5: const reference, no copy · 10: class template</td></tr><tr><td><code>virtual ~StorageNode() = default;</code></td><td>8: destructor · 9: virtual destructor</td></tr><tr><td><code>class SSDNode : public StorageNode</code></td><td>9: public inheritance</td></tr><tr><td><code>void write(…) override</code></td><td>9: override, dynamic dispatch</td></tr><tr><td>the whole thing compiled to <code>.o</code> files with a vtable</td><td>1: compilation and linking</td></tr></table>
+
+</div>

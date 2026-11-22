@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Reading a function template</div>
+<table class="t"><tr><th>Syntax</th><th>Meaning</th></tr><tr><td><code>template &lt;typename T&gt;</code></td><td>what follows is a template with one type parameter, <code>T</code></td></tr><tr><td><code>T findMaximum(T a, T b)</code></td><td>both parameters and the return value have that type</td></tr><tr><td><code>findMaximum(10, 20)</code></td><td><code>T</code> is deduced from the arguments: <code>int</code></td></tr><tr><td><code>findMaximum&lt;double&gt;(10, 20.5)</code></td><td><code>T</code> given explicitly; 10 converts to double</td></tr><tr><td><code>typename</code> vs <code>class</code></td><td>identical in this position: <code>template &lt;class T&gt;</code> means the same</td></tr></table>
+
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">The first matching catch wins</div>
+<table class="t"><tr><th>Handler (in order)</th><th><code>throw std::out_of_range(…)</code></th></tr><tr><td><code>catch (const std::out_of_range&amp; e)</code></td><td><span class="pill ok">matches</span> runs this one</td></tr><tr><td><code>catch (const std::exception&amp; e)</code></td><td>skipped</td></tr></table>
+<div class="caption">out_of_range derives from std::exception, so the second handler would also match. Handlers are tried top to bottom, so the specific ones go first. In the reverse order, GCC warns that the specific handler will never be reached.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Exceptions aren't the only way to report failure</div>
+<table class="t"><tr><th>Approach</th><th>Looks like</th><th>Fits when</th></tr><tr><td>Exception</td><td><code>throw std::runtime_error(…)</code></td><td>failure is rare and the caller can't sensibly continue; constructors (no return value)</td></tr><tr><td>Error code / bool</td><td><code>bool setCapacity(…)</code> (Module 7)</td><td>failure is normal and expected, like a full disk or a bad input</td></tr><tr><td><code>std::optional&lt;T&gt;</code></td><td>returns a value or nothing</td><td>"not found" is the only failure</td></tr><tr><td><code>std::expected&lt;T, E&gt;</code> (C++23)</td><td>a value or an error object</td><td>the caller needs to know why it failed, without exceptions</td></tr><tr><td><code>std::terminate</code> / <code>assert</code></td><td>stop the program</td><td>a bug: an invariant that should never break</td></tr></table>
+
+</div>
