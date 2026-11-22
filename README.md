@@ -27,3 +27,7 @@ Phase 1 of a 6-phase systems engineering curriculum.
 | 8 | [Constructors, destructors and object lifetimes](08-constructors-destructors-lifetimes/) |
 | 9 | [Inheritance, virtual functions and polymorphism](09-inheritance-virtual-polymorphism/) |
 | 10 | [Templates, namespaces and exceptions](10-templates-namespaces-exceptions/) |
+
+## Diagrams
+
+Every diagram is a small HTML file in a module's `images/src/` folder. `python3 tools/diagrams/render.py` turns them into the PNGs in `images/` (it needs `pip install playwright`).
