@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">What <code>auto</code> actually deduces</div>
+<table class="t"><tr><th>Declaration</th><th>Deduced type</th><th>Copy?</th></tr><tr><td><code>auto x = 42;</code></td><td><code>int</code></td><td>—</td></tr><tr><td><code>auto x = 100.5;</code></td><td><code>double</code></td><td>—</td></tr><tr><td><code>auto x = fixed;</code> (<code>const int fixed</code>)</td><td><code>int</code> (const dropped)</td><td>yes</td></tr><tr><td><code>auto&amp; x = fixed;</code></td><td><code>const int&amp;</code></td><td>no</td></tr><tr><td><code>const auto&amp; x = fixed;</code></td><td><code>const int&amp;</code></td><td>no</td></tr><tr><td><code>for (auto node : nodes)</code></td><td>element type</td><td>every iteration</td></tr><tr><td><code>for (const auto&amp; node : nodes)</code></td><td><code>const</code> element&amp;</td><td>never</td></tr></table>
+<div class="caption">Plain <code>auto</code> drops top-level <code>const</code> and references. Each row is checked with <code>static_assert</code> in auto_deduction.cpp.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title"><code>short s = 1000000;</code> keeps only the low 16 bits</div>
+<div class="label">1,000,000 as a 32-bit int = 0x000F4240</div><div class="row" style=""><div class="cell pad" style="flex:1;min-width:0px"><div class="big">00</div><div class="small">dropped</div></div><div class="cell pad" style="flex:1;min-width:0px"><div class="big">0F</div><div class="small">dropped</div></div><div class="cell green" style="flex:1;min-width:0px"><div class="big">42</div><div class="small">kept</div></div><div class="cell green" style="flex:1;min-width:0px"><div class="big">40</div><div class="small">kept</div></div></div><div class="arrow">↓ convert to <code>short</code> (16 bits)</div><div class="row" style="width:50%;margin-left:50%"><div class="cell green" style="flex:1;min-width:0px"><div class="big">42</div></div><div class="cell green" style="flex:1;min-width:0px"><div class="big">40</div></div></div><div class="sub" style="text-align:right">0x4240 = <b>16960</b></div>
+<div class="caption">Bytes shown most significant first. No error, no warning with a plain <code>=</code>.</div>
+</div>

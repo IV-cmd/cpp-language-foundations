@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Conversions that lose information</div>
+<table class="t"><tr><th>Code</th><th>Result</th><th>What the compiler says</th></tr><tr><td><code>int n = 10.9;</code></td><td>10 (truncates, never rounds)</td><td>nothing by default</td></tr><tr><td><code>short s = 1000000;</code></td><td>16960</td><td>nothing by default</td></tr><tr><td><code>std::size_t n = -1;</code></td><td>18446744073709551615</td><td>nothing by default</td></tr><tr><td><code>static_cast&lt;int&gt;(10.9)</code></td><td>10</td><td>nothing: you asked for it</td></tr><tr><td><code>int x{10.9};</code></td><td>—</td><td><span class="pill">error</span></td></tr><tr><td><code>short s{largeNumber};</code></td><td>—</td><td><span class="pill warn">warning only</span> on GCC</td></tr><tr><td><code>count &lt; bufferSize</code></td><td>wrong answer</td><td><span class="pill warn">-Wsign-compare</span></td></tr></table>
+<div class="caption">Braces reject narrowing. <code>-Wall -Wextra</code> catches the signed/unsigned comparison.</div>
+</div>

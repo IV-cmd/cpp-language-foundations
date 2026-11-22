@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">What a <code>const StorageNode</code> is allowed to call</div>
+<div class="cols"><div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>const StorageNode node</code></div><div class="small">read-only object</div></div></div></div></div><div class="cols" style="margin-top:4px"><div><div class="arrow">↙</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>getNodeId() const</code></div><div class="small">promises not to modify <code>*this</code></div></div></div><div style="text-align:center"><span class="pill ok">compiles</span></div></div><div><div class="arrow">↘</div><div class="row" style=""><div class="cell red" style="flex:1;min-width:0px"><div class="big"><code>setNodeId(int)</code></div><div class="small">might modify <code>*this</code></div></div></div><div style="text-align:center"><span class="pill">error</span></div></div></div>
+<div class="caption">The <code>const</code> after the parameter list is what makes a method callable on a const object or through a <code>const&amp;</code>.</div>
+</div>

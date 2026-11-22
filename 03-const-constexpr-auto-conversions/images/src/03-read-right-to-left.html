@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Read the declaration right to left</div>
+<table class="t"><tr><th>Declaration</th><th>Read it as</th></tr><tr><td><code>const int* p</code></td><td><b>p</b> is a <b>pointer</b> to an <b>int</b> that is <b>const</b></td></tr><tr><td><code>int const* p</code></td><td>same thing: <b>p</b> is a <b>pointer</b> to a <b>const int</b></td></tr><tr><td><code>int* const p</code></td><td><b>p</b> is a <b>const pointer</b> to an <b>int</b></td></tr><tr><td><code>const int* const p</code></td><td><b>p</b> is a <b>const pointer</b> to an <b>int</b> that is <b>const</b></td></tr></table>
+<div class="caption"><code>const</code> applies to whatever is immediately to its left, or to its right if nothing is on the left.</div>
+</div>
