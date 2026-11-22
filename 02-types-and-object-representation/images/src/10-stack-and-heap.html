@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">One pointer, two objects, two lifetimes</div>
+<div class="cols"><div><div class="label">Stack: <code>handleRequest()</code> frame</div><div class="box" style="text-align:left"><div style="margin-bottom:8px"><code>int nodeId</code> <span style="float:right" class="mono">42</span></div><div><code>int* heapId</code> <span style="float:right;color:#7c3aed" class="mono">0x5560a2b4 →</span></div></div><div class="caption">Destroyed automatically when the function returns.</div></div><div><div class="label">Heap</div><div class="row" style=""><div class="cell purple" style="flex:1;min-width:0px"><div class="big">42</div><div class="small">int created by <code>new</code></div></div></div><div class="caption">Lives until someone calls <code>delete heapId</code>. Forget it and it leaks.</div></div></div>
+<div class="caption">The standard calls these automatic and dynamic storage duration. Stack and heap are how mainstream platforms implement them.</div>
+</div>
