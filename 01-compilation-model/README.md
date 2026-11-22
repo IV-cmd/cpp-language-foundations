@@ -17,24 +17,7 @@ All the code in this post is in [`examples/`](examples/). Each folder builds on 
 
 A CPU only executes machine instructions for its own architecture. An x86-64 chip runs x86-64 instructions, and an ARM chip runs ARM instructions. So C++ source has to go through a series of transformations first:
 
-```
-C++ source (.cpp, .hpp)
-      │  preprocessor: handles #include, #define, #if
-      ▼
-Preprocessed source (.i)
-      │  compiler: parse, type-check, optimise
-      ▼
-Assembly (.s)
-      │  assembler
-      ▼
-Object file (.o)       ← one per .cpp file
-      │  linker: combines all .o files and libraries
-      ▼
-Executable
-      │  OS loader
-      ▼
-Running process
-```
+![The five stages from C++ source to a running process, with the g++ flag for each](images/01-pipeline.png)
 
 Compiling and building are different things. Compiling turns *one* source file into *one* object file. Building means coordinating many compilations, then linking, and redoing only the parts that changed. Compilers do the first job. Tools like CMake, Make and Ninja do the second.
 
@@ -56,20 +39,7 @@ storage-server/
 
 The split exists because C++ separates declarations from definitions:
 
-```cpp
-// StorageNode.hpp, the declaration: "this exists, and this is how you call it"
-class StorageNode {
-public:
-    void storeFile();
-};
-```
-
-```cpp
-// StorageNode.cpp, the definition: "this is what it actually does"
-void StorageNode::storeFile() {
-    std::cout << "Storing file\n";
-}
-```
+![StorageNode.hpp holds the declaration and StorageNode.cpp holds the definition](images/02-declaration-vs-definition.png)
 
 The declaration gives the compiler everything it needs to *call* `storeFile()`: its name, its return type (`void`) and its parameters (none). It says nothing about how the function works, so any file that wants to use `StorageNode` only needs the header.
 
@@ -99,6 +69,8 @@ int main() {
 
 That's why the compiler knows `StorageNode` has a `storeFile()` method while compiling `main.cpp`, even though the function body is in a completely different file.
 
+![Two headers and main.cpp pasted together into one translation unit](images/03-include-is-paste.png)
+
 ### Include guards and `#pragma once`
 
 If a header ends up being included twice in the same file (which happens all the time with nested includes), the class gets defined twice and compilation fails. There are two ways to prevent that, and the example uses both:
@@ -120,11 +92,7 @@ If a header ends up being included twice in the same file (which happens all the
 
 A translation unit is one `.cpp` file after preprocessing, meaning with all its headers pasted in. This is the unit the compiler actually works on, and it compiles each one independently:
 
-```
-main.cpp            + headers  →  main.o
-StorageNode.cpp     + headers  →  StorageNode.o
-MetadataManager.cpp + headers  →  MetadataManager.o
-```
+![Three .cpp files compiled separately into object files, then linked into one executable](images/04-translation-units.png)
 
 While compiling `main.cpp`, the compiler has no idea what's inside `StorageNode.cpp`. That sounds limiting, but it's what makes incremental builds possible. In a project with 5,000 source files, editing one `.cpp` means recompiling that one file and relinking, not rebuilding everything. You can watch this happen in the CMake example in section 9.
 
@@ -180,6 +148,8 @@ The giveaways are `/usr/bin/ld` and `collect2`: this error comes from the linker
 
 A compiler error comes from one translation unit: bad syntax, a type mismatch, or a name that was never declared. A linker error comes from combining object files: something was used but never defined, or defined more than once.
 
+![Table comparing compiler errors and linker errors](images/05-compiler-vs-linker-error.png)
+
 So when I add a method to a class and get `undefined reference`, I don't need to look at runtime behaviour or even at the call site. I check two things: does the method actually have a definition, and is the `.cpp` that defines it part of the build target?
 
 ## 6. Symbols and name mangling
@@ -196,6 +166,8 @@ $ nm calculator.o
 ```
 
 `U` means undefined: `main.o` needs this symbol from somewhere else. `T` means it's defined in this file's text (code) section. Linking is mostly matching every `U` with exactly one `T`.
+
+![main.o needs _Z3addii and calculator.o defines it](images/06-symbol-matching.png)
 
 But why `_Z3addii` and not `add`? C++ allows overloading, so two functions can share a name:
 
@@ -214,6 +186,10 @@ T c_add                       T c_add
 ```
 
 `_Z3addii` breaks down as: `_Z` (a mangled name), `3add` (a 3-character name), then `i` and `i` (two `int` parameters). The exact scheme depends on the platform. GCC and Clang on Linux follow the Itanium C++ ABI, and MSVC uses a different one.
+
+![_Z3addii split into _Z, 3add, i and i](images/07-name-mangling.png)
+
+You can see the mangled names for yourself on [Compiler Explorer](https://godbolt.org/z/97KhPxv9f). Demangling is switched off there, so the assembly shows `_Z3addii` and `_Z3adddd` next to the plain `c_add`.
 
 C doesn't mangle names, and that's what `c_add` is about:
 
@@ -238,7 +214,9 @@ Every `.cpp` that includes it gets its own copy pasted in, so every object file 
 /usr/bin/ld: ...(.bss+0x0): multiple definition of `globalCounter'; ...(.bss+0x0): first defined here
 ```
 
-This breaks the One Definition Rule (ODR): roughly, a variable or non-inline function used in a program must be defined exactly once across all translation units. There are two standard fixes:
+This breaks the One Definition Rule (ODR): roughly, a variable or non-inline function used in a program must be defined exactly once across all translation units. ![A header variable pasted into a.o and b.o causes a multiple definition error, with two fixes](images/08-odr-violation.png)
+
+There are two standard fixes:
 
 ```cpp
 // Fix 1: the header only declares it...
@@ -259,6 +237,8 @@ The linker catches this case, but not every ODR violation. If two translation un
 ## 8. Static vs shared libraries
 
 Large projects bundle object files into libraries. There are two kinds, and they differ in *when* the linking happens:
+
+![A static library copied into the executable vs a shared library loaded at startup](images/09-static-vs-shared.png)
 
 | | Static library (`.a`) | Shared library (`.so`) |
 |---|---|---|
@@ -330,6 +310,8 @@ Then I touched only `StorageNode.cpp` and rebuilt:
 [2/3] Linking CXX static library libstorage-core.a
 [3/3] Linking CXX executable storage-server
 ```
+
+![First build compiles everything, the rebuild only recompiles StorageNode.cpp](images/10-incremental-build.png)
 
 Only `StorageNode.cpp` was recompiled. `main.cpp` and `MetadataManager.cpp` weren't touched, because each translation unit is compiled independently.
 

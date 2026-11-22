@@ -1,0 +1,10 @@
+<div class="card ">
+<div class="title">Declaration vs definition</div>
+<div class="cols"><div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">StorageNode.hpp</div><div class="small">the declaration</div></div></div><pre class="mono" style="font-size:12.5px;background:#f6f8fa;border-radius:8px;padding:10px;margin:6px 0">class StorageNode {
+public:
+    void storeFile();
+};</pre><div class="sub">"This exists, and this is how you call it." Included by every file that uses it.</div></div><div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">StorageNode.cpp</div><div class="small">the definition</div></div></div><pre class="mono" style="font-size:12.5px;background:#f6f8fa;border-radius:8px;padding:10px;margin:6px 0">void StorageNode::storeFile() {
+    std::cout &lt;&lt; "Storing file\n";
+}</pre><div class="sub">"This is what it actually does." Compiled once, into one object file.</div></div></div>
+
+</div>

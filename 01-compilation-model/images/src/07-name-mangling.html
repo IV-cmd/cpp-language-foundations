@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Reading a mangled name: <code>_Z3addii</code></div>
+<div class="row" style=""><div class="cell gray" style="flex:1.2;min-width:0px"><div class="big">_Z</div><div class="small">"this is a mangled C++ name"</div></div><div class="cell blue" style="flex:1.6;min-width:0px"><div class="big">3add</div><div class="small">a 3-character name: add</div></div><div class="cell green" style="flex:1;min-width:0px"><div class="big">i</div><div class="small">first param: int</div></div><div class="cell green" style="flex:1;min-width:0px"><div class="big">i</div><div class="small">second param: int</div></div></div><div style="margin-top:12px"><table class="t"><tr><th>Source</th><th>Symbol (Itanium ABI)</th></tr><tr><td><code>int add(int, int)</code></td><td><code>_Z3addii</code></td></tr><tr><td><code>double add(double, double)</code></td><td><code>_Z3adddd</code></td></tr><tr><td><code>extern "C" int c_add(int, int)</code></td><td><code>c_add</code> (not mangled)</td></tr></table></div>
+<div class="caption">GCC and Clang on Linux use the Itanium C++ ABI. MSVC mangles differently.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Compiler error or linker error?</div>
+<table class="t"><tr><th></th><th>Compiler error</th><th>Linker error</th></tr><tr><td>Where it happens</td><td>inside one translation unit</td><td>when object files are combined</td></tr><tr><td>Typical message</td><td><code>'add' was not declared in this scope</code></td><td><code>undefined reference to `add(int, int)'</code></td></tr><tr><td>Giveaway</td><td><code>file.cpp:4:12: error:</code></td><td><code>/usr/bin/ld</code>, <code>collect2</code></td></tr><tr><td>Usual causes</td><td>syntax, type mismatch, missing declaration</td><td>missing definition, .cpp not in the target, defined twice</td></tr><tr><td>What to check</td><td>the line it points at</td><td>is it defined? is that .cpp being linked?</td></tr></table>
+
+</div>
