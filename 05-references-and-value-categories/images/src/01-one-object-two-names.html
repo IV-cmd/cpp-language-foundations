@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">One object, two names: <code>int&amp; size = fileSize;</code></div>
+<div style="display:flex;align-items:center;gap:14px"><div style="flex:0 0 150px"><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">fileSize</div><div class="small">name 1</div></div></div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">size</div><div class="small">name 2 (reference)</div></div></div></div><div style="font-size:30px;color:#2563eb">⇉</div><div style="flex:1"><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><s>100</s> 500</div><div class="small">one int at 0x7ffd…87f0</div></div></div></div></div>
+<div class="caption">From my run of reference_basics.cpp: <code>&amp;fileSize</code> and <code>&amp;size</code> print the same address. Writing <code>size = 500</code> changes the only int there is.</div>
+</div>

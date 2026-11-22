@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Lvalue or rvalue? Can you take its address?</div>
+<table class="t"><tr><th>Expression</th><th>Category</th><th><code>&amp;expr</code> works?</th><th>Why</th></tr><tr><td><code>x</code></td><td>lvalue</td><td>yes</td><td>a named object that lives somewhere</td></tr><tr><td><code>*ptr</code></td><td>lvalue</td><td>yes</td><td>the object ptr points to</td></tr><tr><td><code>100</code></td><td>rvalue</td><td>no</td><td>just a value, not an object with an address</td></tr><tr><td><code>x + 1</code></td><td>rvalue</td><td>no</td><td>a temporary result</td></tr><tr><td><code>getSize()</code></td><td>rvalue</td><td>no</td><td>returned by value, a temporary</td></tr><tr><td><code>std::move(x)</code></td><td>rvalue (xvalue)</td><td>no</td><td>x, but marked "you may steal from me"</td></tr></table>
+<div class="caption"><code>&amp;100</code> fails with <code>error: lvalue required as unary '&amp;' operand</code>, which is the compiler's way of saying "that's not an lvalue".</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Pointer vs reference</div>
+<table class="t"><tr><th></th><th>Pointer <code>T*</code></th><th>Reference <code>T&amp;</code></th></tr><tr><td>Is its own object?</td><td>Yes, with its own address</td><td>No, it's an alias</td></tr><tr><td>Must be initialised?</td><td>No (but should be)</td><td><span class="pill">Yes</span> compiler error otherwise</td></tr><tr><td>Can be null?</td><td>Yes, <code>nullptr</code></td><td>No</td></tr><tr><td>Can be re-pointed?</td><td>Yes, <code>ptr = &amp;other;</code></td><td>No. <code>ref = other;</code> copies the value</td></tr><tr><td>Syntax to use the object</td><td><code>*ptr</code>, <code>ptr-&gt;x</code></td><td><code>ref</code>, <code>ref.x</code></td></tr><tr><td>Best for</td><td>"maybe no object", arrays, re-pointing</td><td>"this object definitely exists"</td></tr></table>
+
+</div>

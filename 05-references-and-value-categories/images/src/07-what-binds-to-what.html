@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">What each reference type can bind to</div>
+<table class="t"><tr><th></th><th>an lvalue: <code>x</code></th><th>a const lvalue: <code>cx</code></th><th>an rvalue: <code>100</code>, <code>x + 1</code></th></tr><tr><td><code>int&amp;</code></td><td><span class="pill ok">yes</span></td><td><span class="pill">no</span></td><td><span class="pill">no</span></td></tr><tr><td><code>const int&amp;</code></td><td><span class="pill ok">yes</span></td><td><span class="pill ok">yes</span></td><td><span class="pill ok">yes</span> keeps the temporary alive</td></tr><tr><td><code>int&amp;&amp;</code></td><td><span class="pill">no</span></td><td><span class="pill">no</span></td><td><span class="pill ok">yes</span></td></tr></table>
+<div class="caption">This one table explains most of the "cannot bind" errors GCC gives you.</div>
+</div>
