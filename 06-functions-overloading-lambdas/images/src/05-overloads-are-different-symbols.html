@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Overloads become different symbols</div>
+<table class="t"><tr><th>Source</th><th>Symbol in overloading.o</th></tr><tr><td><code>calculateChecksum(int)</code></td><td><code>_Z17calculateChecksum<b>i</b></code></td></tr><tr><td><code>calculateChecksum(const std::string&amp;)</code></td><td><code>_Z17calculateChecksum<b>RKNSt7__cxx1112basic_string…</b></code></td></tr></table>
+<div class="caption">From <code>nm overloading.o</code>. The parameter types are encoded in the name, which is why the return type can't be used to overload: it isn't in the symbol. Same mangling as in Module 1.</div>
+</div>

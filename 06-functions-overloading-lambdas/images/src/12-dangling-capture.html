@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">A lambda that outlives what it captured</div>
+<div class="box"><b><code>makeChecker()</code> runs</b><div class="sub">local <code>threshold = 3</code> on its stack frame</div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell purple" style="flex:1;min-width:0px"><div class="big"><code>[&amp;threshold]</code></div><div class="small">lambda stores the address of threshold</div></div></div><div class="arrow">↓ returned to main</div><div class="box"><b><code>makeChecker()</code> returns</b><div class="sub">frame gone, threshold gone</div></div><div class="arrow">↓</div><div class="box alert"><span class="pill">stack-use-after-return</span><div class="sub" style="margin-top:6px"><code>isHealthy(5)</code> reads a dead stack slot. Plain build: prints <b>false</b>, no warning.</div></div>
+<div class="caption">Same bug as the dangling pointer in Module 4, hidden inside a lambda. Capture by value (<code>[threshold]</code>) fixes it.</div>
+</div>

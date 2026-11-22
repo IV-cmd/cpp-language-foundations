@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">What a call does</div>
+<div class="cols"><div><div class="label">main()</div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>calculateChecksum(10)</code></div><div class="small">1. copy 10 into the parameter</div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>checksum = 310</code></div><div class="small">4. result lands here</div></div></div></div><div><div class="label">calculateChecksum()</div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big"><code>data = 10</code></div><div class="small">2. its own stack frame</div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big"><code>return 310;</code></div><div class="small">3. frame is destroyed</div></div></div></div></div>
+<div class="caption">A <code>void</code> function skips step 4: there's nothing to hand back.</div>
+</div>

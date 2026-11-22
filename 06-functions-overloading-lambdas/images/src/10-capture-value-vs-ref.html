@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Capture by value vs by reference: change <code>threshold</code> after creating the lambdas</div>
+<div class="cols"><div><div class="label"><code>[threshold]</code></div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big">3</div><div class="small">copy taken at creation</div></div></div><div class="sub">threshold becomes 10 later, and the copy doesn't care.<br><code>byValue(5)</code> → <b>true</b> (5 &gt; 3)</div></div><div><div class="label"><code>[&amp;threshold]</code></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><s>3</s> 10</div><div class="small">the real threshold</div></div></div><div class="sub">Reads the variable at call time.<br><code>byRef(5)</code> → <b>false</b> (5 &gt; 10)</div></div></div>
+
+</div>

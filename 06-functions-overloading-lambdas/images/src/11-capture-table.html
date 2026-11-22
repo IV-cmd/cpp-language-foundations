@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Capture lists</div>
+<table class="t"><tr><th>Capture</th><th>Meaning</th><th>Watch out for</th></tr><tr><td><code>[]</code></td><td>nothing</td><td>—</td></tr><tr><td><code>[x]</code></td><td>copy of <code>x</code></td><td>copying something big</td></tr><tr><td><code>[&amp;x]</code></td><td>reference to <code>x</code></td><td><span class="pill">dangles</span> if the lambda outlives x</td></tr><tr><td><code>[=]</code></td><td>copy of every local the body uses</td><td>hides what's captured</td></tr><tr><td><code>[&amp;]</code></td><td>reference to every local the body uses</td><td>hides what's captured, and can dangle</td></tr></table>
+
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Return type alone can't tell overloads apart</div>
+<div class="cols"><div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>int getSize()</code></div></div></div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>double getSize()</code></div></div></div><div class="sub" style="text-align:center"><span class="pill">error</span> ambiguating new declaration</div></div><div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>int getSize(int nodeId)</code></div></div></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>int getSize(const std::string&amp; name)</code></div></div></div><div class="sub" style="text-align:center"><span class="pill ok">fine</span> parameter lists differ</div></div></div>
+<div class="caption">For <code>auto s = getSize();</code> there'd be nothing to choose with.</div>
+</div>

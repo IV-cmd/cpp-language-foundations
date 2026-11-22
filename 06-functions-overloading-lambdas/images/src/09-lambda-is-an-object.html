@@ -1,0 +1,15 @@
+<div class="card ">
+<div class="title">A lambda is an object of a class the compiler writes for you</div>
+<div class="cols"><div><div class="label">I write</div><pre style="font-size:12.5px;background:#f6f8fa;padding:10px;border-radius:8px;margin:0">int threshold = 3;
+auto byValue = [threshold](int id) {
+    return id &gt; threshold;
+};</pre></div><div><div class="label">Roughly what the compiler generates</div><pre style="font-size:12.5px;background:#f6f8fa;padding:10px;border-radius:8px;margin:0">class __lambda_1 {
+    int threshold;          // the capture
+public:
+    bool operator()(int id) const {
+        return id &gt; threshold;
+    }
+};
+__lambda_1 byValue{threshold};</pre></div></div><div style="margin-top:12px"><table class="t"><tr><th>Lambda</th><th>sizeof</th><th>What the object stores</th></tr><tr><td><code>[] {}</code></td><td>1</td><td>nothing (empty objects still take 1 byte)</td></tr><tr><td><code>[threshold]</code></td><td>4</td><td>a copy of the int</td></tr><tr><td><code>[&amp;threshold]</code></td><td>8</td><td>the address of the int</td></tr></table></div>
+<div class="caption">Sizes from my run of lambdas.cpp. This is why capture by reference can dangle: the object holds an address.</div>
+</div>

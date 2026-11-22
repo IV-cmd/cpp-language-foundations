@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Which parameter type should I use?</div>
+<table class="t"><tr><th>Situation</th><th>Use</th><th>Example</th></tr><tr><td>Small and cheap to copy (int, bool, char, double)</td><td><code>T</code></td><td><code>void setPort(int port)</code></td></tr><tr><td>Big object, only reading it</td><td><code>const T&amp;</code></td><td><code>void inspect(const FileMetadata&amp; m)</code></td></tr><tr><td>Must change the caller's object</td><td><code>T&amp;</code></td><td><code>void update(FileMetadata&amp; m)</code></td></tr><tr><td>The object might not exist</td><td><code>T*</code> (or <code>std::optional</code>)</td><td><code>StorageNode* findNode(int id)</code></td></tr></table>
+<div class="caption">A good default: start from <code>const T&amp;</code> for anything bigger than a couple of pointers, and only drop the const if the function really has to change it.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Default arguments are filled in at the call site</div>
+<table class="t"><tr><th>You write</th><th>The compiler calls</th></tr><tr><td><code>readFile("data.bin")</code></td><td><code>readFile("data.bin", 4096)</code></td></tr><tr><td><code>readFile("data.bin", 8192)</code></td><td><code>readFile("data.bin", 8192)</code></td></tr></table>
+<div class="caption">The default lives in the declaration, normally in the header, so every caller can see it. Writing it again in the definition is an error.</div>
+</div>
