@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Passing by value vs passing a pointer</div>
+<div class="cols"><div><div class="label"><code>updateCapacityByValue(capacity)</code></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">50</div><div class="small">main: capacity</div></div></div><div class="arrow">↓ copies the value</div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big"><s>50</s> 100</div><div class="small">function's own copy</div></div></div><div class="sub">Copy is thrown away. main still has <b>50</b>.</div></div><div><div class="label"><code>updateCapacityByPointer(&amp;capacity)</code></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><s>50</s> 100</div><div class="small">main: capacity</div></div></div><div class="arrow">↑ writes through the address</div><div class="row" style=""><div class="cell purple" style="flex:1;min-width:0px"><div class="big">&amp;capacity</div><div class="small">function's pointer</div></div></div><div class="sub">main now has <b>100</b>.</div></div></div>
+
+</div>

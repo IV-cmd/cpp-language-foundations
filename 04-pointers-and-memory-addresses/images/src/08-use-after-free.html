@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Use after free: the address outlives the object</div>
+<div class="cols"><div><div class="label">1. <code>new int(42)</code></div><div class="row" style=""><div class="cell purple" style="flex:1;min-width:0px"><div class="big">42</div><div class="small">heap block</div></div></div><div class="sub">ptr → block</div></div><div><div class="label">2. <code>delete ptr</code></div><div class="row" style=""><div class="cell pad" style="flex:1;min-width:0px"><div class="big">freed</div><div class="small">back to the allocator</div></div></div><div class="sub">ptr still holds the address</div></div><div><div class="label">3. <code>*ptr</code></div><div class="row" style=""><div class="cell red" style="flex:1;min-width:0px"><div class="big">1971427275</div><div class="small">allocator bookkeeping</div></div></div><div class="sub">garbage, different every run</div></div></div>
+<div class="caption">A plain build prints garbage and keeps going. <code>-fsanitize=address</code> stops at line 6 with <code>heap-use-after-free</code>.</div>
+</div>

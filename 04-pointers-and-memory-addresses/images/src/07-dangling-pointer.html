@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Object lifetime problem: returning a local's address</div>
+<div class="box"><b>createNodeId() starts</b><div class="sub">creates a local int in its stack frame</div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><code>nodeId = 42</code></div><div class="small">object is alive</div></div></div><div class="arrow">↓</div><div class="box"><b>createNodeId() returns <code>&amp;nodeId</code></b><div class="sub">the frame is gone, and so is nodeId</div></div><div class="arrow">↓</div><div class="box alert"><span class="pill">Dangling pointer</span><div class="sub" style="margin-top:6px">The pointer still holds an address, but no object lives there.</div></div>
+<div class="caption">GCC 11 warns (<code>-Wreturn-local-addr</code>) and returns a null pointer instead, so my build crashed immediately with <code>p = 0</code>.</div>
+</div>

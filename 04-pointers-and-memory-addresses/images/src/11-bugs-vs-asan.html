@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Three memory bugs: plain build vs AddressSanitizer</div>
+<table class="t"><tr><th>Bug</th><th>Plain build</th><th>With <code>-fsanitize=address</code></th></tr><tr><td>Dangling pointer</td><td>warning, then segfault</td><td><span class="pill">SEGV</span> at address 0</td></tr><tr><td>Use after free</td><td>prints garbage, keeps running</td><td><span class="pill">heap-use-after-free</span> + 3 line numbers</td></tr><tr><td>Leak</td><td>runs fine, nothing printed</td><td><span class="pill">detected memory leaks</span> 3 MiB</td></tr></table>
+<div class="caption">ASan costs roughly 2× speed and extra memory, so it's for debug builds and tests.</div>
+</div>

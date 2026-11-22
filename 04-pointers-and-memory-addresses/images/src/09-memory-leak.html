@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">A leak: 1 MiB per request, never freed</div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span class="sub" style="width:120px">after request 1</span><div class="bar" style="width:190px;background:#dc2626">1 MiB leaked</div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span class="sub" style="width:120px">after request 2</span><div class="bar" style="width:380px;background:#dc2626">2 MiB leaked</div></div><div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span class="sub" style="width:120px">after request 3</span><div class="bar" style="width:570px;background:#dc2626">3 MiB leaked</div></div><div class="sub" style="margin-top:6px">…after a million requests, the OOM killer ends the process.</div>
+<div class="caption">LeakSanitizer: <code>Direct leak of 3145728 byte(s) in 3 object(s)</code>.</div>
+</div>

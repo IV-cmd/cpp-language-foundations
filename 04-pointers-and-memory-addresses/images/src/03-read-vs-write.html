@@ -1,0 +1,5 @@
+<div class="card">
+<div class="title">Reading through a pointer vs writing through it</div>
+<div class="cols"><div><div class="label"><code>int copy = *ptr;</code></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">42</div><div class="small">nodeId</div></div><div class="cell orange" style="flex:1;min-width:0px"><div class="big">42</div><div class="small">copy (new int)</div></div></div><div class="sub">Takes the value at that moment. No link afterwards.</div></div><div><div class="label"><code>*ptr = 100;</code></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big"><s>42</s> 100</div><div class="small">nodeId, overwritten in place</div></div></div><div class="sub">Goes to nodeId's address and writes there.</div></div></div>
+<div class="caption">Result: <code>nodeId=100 copy=42</code></div>
+</div>
