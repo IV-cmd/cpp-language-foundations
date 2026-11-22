@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Abstract classes: an interface that must be implemented</div>
+<div class="cols"><div><div class="row" style=""><div class="cell purple" style="flex:1;min-width:0px"><div class="big">StorageNode</div><div class="small"><code>virtual void performIO() const = 0;</code></div></div></div><div class="sub"><code>StorageNode generic;</code> → <span class="pill">error</span> cannot declare variable to be of abstract type</div></div><div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">NVMeNode</div><div class="small"><code>void performIO() const override</code></div></div></div><div class="sub"><code>NVMeNode nvme;</code> → <span class="pill ok">fine</span> prints NVMe parallel queues I/O</div></div></div>
+<div class="caption"><code>= 0</code> means "no implementation here, every concrete derived class must provide one". A class with at least one pure virtual function can only be used as a base.</div>
+</div>

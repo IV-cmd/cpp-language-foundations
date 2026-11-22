@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">What a derived class can touch</div>
+<table class="t"><tr><th>Member of StorageNode</th><th>Inside SSDNode's functions</th><th>From main()</th></tr><tr><td><code>public: nodeId</code></td><td><span class="pill ok">yes</span></td><td><span class="pill ok">yes</span></td></tr><tr><td><code>protected: capacity</code></td><td><span class="pill ok">yes</span></td><td><span class="pill">no</span> protected within this context</td></tr><tr><td><code>private: internalSecret</code></td><td><span class="pill">no</span> private within this context</td><td><span class="pill">no</span></td></tr></table>
+<div class="caption">Both errors are real, from <code>inheritance.cpp -DSHOW_ERRORS</code>.</div>
+</div>

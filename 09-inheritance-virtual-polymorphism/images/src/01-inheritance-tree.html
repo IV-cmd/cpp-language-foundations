@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Inheritance relationship</div>
+<div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">StorageNode</div><div class="small">common: nodeId, capacity, printInfo()</div></div></div><div class="arrow">↓</div><div class="sub" style="text-align:center;margin-bottom:6px">inherited by</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">SSDNode</div><div class="small">+ optimiseForRandomIO()</div></div><div class="cell orange" style="flex:1;min-width:0px"><div class="big">HDDNode</div><div class="small">+ optimiseForSequentialIO()</div></div></div>
+<div class="caption">Each derived class gets everything StorageNode has, and adds its own. <code>class SSDNode : public StorageNode</code> reads as "an SSDNode is a StorageNode".</div>
+</div>

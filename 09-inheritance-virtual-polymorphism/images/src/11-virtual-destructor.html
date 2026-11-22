@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title"><code>delete node;</code> where <code>node</code> is a <code>StorageNode*</code> to an SSDNode</div>
+<table class="t"><tr><th></th><th><code>~StorageNode()</code></th><th><code>virtual ~StorageNode()</code></th></tr><tr><td>Destructors that run</td><td>~StorageNode only</td><td>~SSDNode, then ~StorageNode</td></tr><tr><td>SSDNode's 1 MiB write cache</td><td><span class="pill">never freed</span></td><td><span class="pill ok">freed</span></td></tr><tr><td>GCC with <code>-Wall</code></td><td>warning: -Wdelete-non-virtual-dtor</td><td>no warning</td></tr><tr><td>AddressSanitizer</td><td>new-delete-type-mismatch: allocated 32 bytes, deallocated 8</td><td>clean</td></tr><tr><td>Standard says</td><td>undefined behaviour</td><td>well-defined</td></tr></table>
+<div class="caption">Rule: if a class has any virtual function, or might be deleted through a base pointer, give it a virtual destructor. <code>virtual ~StorageNode() = default;</code> is enough.</div>
+</div>

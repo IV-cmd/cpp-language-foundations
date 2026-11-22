@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Through a <code>StorageNode*</code> pointing at an SSDNode</div>
+<table class="t"><tr><th>Call</th><th><code>virtual</code> in StorageNode?</th><th>Decided by</th><th>Output</th></tr><tr><td><code>base-&gt;performIO()</code></td><td>yes</td><td>the object's dynamic type (SSDNode), at run time</td><td>SSD random I/O</td></tr><tr><td><code>base-&gt;describe()</code></td><td>no</td><td>the pointer's static type (StorageNode), at compile time</td><td>plain StorageNode::describe</td></tr><tr><td><code>ssd.describe()</code></td><td>no</td><td>the variable's type (SSDNode)</td><td>SSDNode::describe</td></tr></table>
+<div class="caption">Same object in all three rows. Without <code>virtual</code>, SSDNode::describe only hides the base version; it doesn't replace it.</div>
+</div>

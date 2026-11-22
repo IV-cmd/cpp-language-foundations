@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Passing by value slices off the derived part</div>
+<table class="t"><tr><th>Function parameter</th><th>What the function receives</th><th>Output for an SSDNode</th></tr><tr><td><code>const StorageNode* node</code></td><td>the address of the real SSDNode</td><td><span class="pill ok">SSD random I/O</span></td></tr><tr><td><code>const StorageNode&amp; node</code></td><td>the real SSDNode, by another name</td><td><span class="pill ok">SSD random I/O</span></td></tr><tr><td><code>StorageNode node</code></td><td>a new StorageNode copied from the base part</td><td><span class="pill">generic storage I/O</span></td></tr></table>
+<div class="caption">A by-value StorageNode parameter is exactly a StorageNode, so there's nowhere to put the SSD part. Polymorphism only works through pointers and references, which ties straight back to Modules 4 and 5.</div>
+</div>

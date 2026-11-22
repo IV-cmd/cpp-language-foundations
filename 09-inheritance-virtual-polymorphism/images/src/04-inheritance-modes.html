@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title"><code>public</code> vs <code>protected</code> vs <code>private</code> inheritance</div>
+<table class="t"><tr><th>Base member</th><th><code>: public Base</code></th><th><code>: protected Base</code></th><th><code>: private Base</code></th></tr><tr><td>public</td><td>public</td><td>protected</td><td>private</td></tr><tr><td>protected</td><td>protected</td><td>protected</td><td>private</td></tr><tr><td>private</td><td>not accessible</td><td>not accessible</td><td>not accessible</td></tr></table>
+<div class="caption">The keyword after the colon caps how visible inherited members are. Polymorphism needs <code>public</code>: only then can outside code treat an SSDNode as a StorageNode. Reminder: <code>class</code> defaults to private inheritance, <code>struct</code> to public.</div>
+</div>

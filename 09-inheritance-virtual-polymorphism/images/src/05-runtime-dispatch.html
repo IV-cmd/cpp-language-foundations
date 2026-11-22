@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Runtime polymorphism</div>
+<div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big">StorageNode pointer</div><div class="small"><code>node-&gt;performIO()</code></div></div></div><div class="arrow">↓</div><div class="sub" style="text-align:center;margin-bottom:6px">runtime dispatch</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">Actual object: SSDNode</div><div class="small"><code>SSD random I/O</code></div></div><div class="cell orange" style="flex:1;min-width:0px"><div class="big">Actual object: HDDNode</div><div class="small"><code>HDD sequential I/O</code></div></div></div>
+<div class="caption">Same line of code, same pointer type, different function, chosen by the type of the object the pointer points at.</div>
+</div>

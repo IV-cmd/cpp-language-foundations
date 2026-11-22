@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">The keywords in this module</div>
+<table class="t"><tr><th>Keyword</th><th>Where</th><th>Meaning</th></tr><tr><td><code>virtual</code></td><td>base class function</td><td>calls through a base pointer/reference use the object's real type</td></tr><tr><td><code>override</code></td><td>derived class function</td><td>"this must override a virtual function", checked by the compiler</td></tr><tr><td><code>= 0</code></td><td>base class function</td><td>pure virtual: no implementation, makes the class abstract</td></tr><tr><td><code>final</code></td><td>class or function</td><td>can't be derived from / overridden any further</td></tr><tr><td><code>virtual ~Base()</code></td><td>base class</td><td>deleting through a base pointer runs the derived destructor too</td></tr></table>
+<div class="caption">Without <code>override</code>, a typo like <code>performIo</code> silently creates a new function. With it: <code>marked 'override', but does not override</code>.</div>
+</div>
