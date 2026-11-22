@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Initialiser list vs assigning in the body</div>
+<table class="t"><tr><th></th><th><code>: hostname(host)</code> (initialiser list)</th><th><code>{ hostname = host; }</code> (body)</th></tr><tr><td>What happens</td><td>member is constructed with the value</td><td>member is default-constructed, then assigned</td></tr><tr><td><code>const</code> and reference members</td><td>work</td><td><span class="pill">compile error</span></td></tr><tr><td>Members with no default constructor</td><td>work</td><td><span class="pill">compile error</span></td></tr><tr><td>Cost for a <code>std::string</code></td><td>one construction</td><td>construction + assignment</td></tr></table>
+
+</div>

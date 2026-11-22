@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">How a shared function knows which object it's working on: <code>this</code></div>
+<table class="t"><tr><th>You write</th><th>Roughly what's called</th><th><code>this</code> in my run</th></tr><tr><td><code>node1.printInfo()</code></td><td><code>printInfo(&amp;node1)</code></td><td><code>0x7fffc39da870</code> = &amp;node1</td></tr><tr><td><code>node2.printInfo()</code></td><td><code>printInfo(&amp;node2)</code></td><td><code>0x7fffc39da87c</code> = &amp;node2</td></tr></table>
+<div class="caption">Inside a member function, <code>usedCapacity</code> is short for <code>this-&gt;usedCapacity</code>. <code>this</code> is a pointer, which is why Module 4 came first.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">What you can call on a <code>const StorageNode</code></div>
+<table class="t"><tr><th>Member function</th><th>Marked <code>const</code>?</th><th>On <code>const StorageNode backup</code></th></tr><tr><td><code>getAvailableCapacity()</code></td><td>yes</td><td><span class="pill ok">allowed</span> 40000</td></tr><tr><td><code>isHealthy()</code></td><td>yes</td><td><span class="pill ok">allowed</span></td></tr><tr><td><code>printInfo()</code></td><td>yes</td><td><span class="pill ok">allowed</span></td></tr><tr><td><code>markUnhealthy()</code></td><td>no</td><td><span class="pill">error</span> passing 'const StorageNode' as 'this' discards qualifiers</td></tr></table>
+<div class="caption">Inside a const member function, <code>this</code> is a <code>const StorageNode*</code>. That's what the error message is about.</div>
+</div>
