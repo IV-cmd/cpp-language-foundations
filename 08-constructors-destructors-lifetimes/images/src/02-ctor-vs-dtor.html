@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Constructor vs destructor</div>
+<table class="t"><tr><th></th><th>Constructor</th><th>Destructor</th></tr><tr><td>Name</td><td><code>StorageNode</code></td><td><code>~StorageNode</code></td></tr><tr><td>Return type</td><td>none, not even <code>void</code></td><td>none</td></tr><tr><td>Parameters</td><td>any, can be overloaded</td><td>none, exactly one per class</td></tr><tr><td>Runs when</td><td>the object is created</td><td>the object's lifetime ends</td></tr><tr><td>Job</td><td>set up a valid object, acquire resources</td><td>release resources</td></tr><tr><td>If you don't write one</td><td>the compiler may generate a default one</td><td>the compiler generates one that destroys the members</td></tr></table>
+
+</div>

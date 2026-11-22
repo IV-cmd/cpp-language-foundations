@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">When does <code>StorageNode n;</code> compile?</div>
+<table class="t"><tr><th>What the class declares</th><th><code>StorageNode n;</code></th><th><code>StorageNode n(10);</code></th></tr><tr><td>No constructors at all</td><td><span class="pill ok">compiles</span> compiler-generated</td><td><span class="pill">error</span></td></tr><tr><td>Only <code>StorageNode(int id)</code></td><td><span class="pill">error</span> no matching function</td><td><span class="pill ok">compiles</span></td></tr><tr><td><code>StorageNode(int id)</code> + <code>StorageNode() = default;</code></td><td><span class="pill ok">compiles</span></td><td><span class="pill ok">compiles</span></td></tr><tr><td><code>StorageNode(int id = 0)</code></td><td><span class="pill ok">compiles</span> default argument</td><td><span class="pill ok">compiles</span></td></tr></table>
+<div class="caption">Declaring any constructor switches off the generated no-argument one. <code>= default</code> asks for it back. Give members default values (<code>int nodeId = 0;</code>) so the defaulted one isn't full of garbage.</div>
+</div>

@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Three objects: destroyed in reverse order</div>
+<div class="cols"><div><div class="label">Constructed</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">1. node1</div></div></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">2. node2</div></div></div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">3. node3</div></div></div></div><div><div class="label">Destroyed</div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big">1. node3</div></div></div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big">2. node2</div></div></div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big">3. node1</div></div></div></div></div>
+<div class="caption">Like a stack: last in, first out. node3 might use node1 or node2, so they have to outlive it. Destroying in reverse guarantees that.</div>
+</div>

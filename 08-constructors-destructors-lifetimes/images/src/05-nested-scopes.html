@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Nested blocks: each <code>}</code> ends the objects declared inside it</div>
+<table class="t"><tr><th>Line in <code>main()</code></th><th>Output</th><th>Alive after this line</th></tr><tr><td><code>StorageNode outer("outer");</code></td><td>constructor: outer</td><td>outer</td></tr><tr><td><code>{ StorageNode inner("inner");</code></td><td>constructor: inner</td><td>outer, inner</td></tr><tr><td><code>}</code></td><td>destructor: inner</td><td>outer</td></tr><tr><td><code>std::cout &lt;&lt; "end of main";</code></td><td>end of main</td><td>outer</td></tr><tr><td>closing <code>}</code> of main</td><td>destructor: outer</td><td>nothing</td></tr></table>
+
+</div>

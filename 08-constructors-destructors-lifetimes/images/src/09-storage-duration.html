@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">Where an object lives decides when it dies</div>
+<table class="t"><tr><th>Storage duration</th><th>Example</th><th>Created</th><th>Destroyed</th></tr><tr><td>Automatic</td><td>local variable</td><td>at its declaration</td><td>at the end of its block, automatically</td></tr><tr><td>Dynamic</td><td><code>new StorageNode(2)</code></td><td>at <code>new</code></td><td>at <code>delete</code>, or never (leak)</td></tr><tr><td>Static</td><td>global, or <code>static</code> local</td><td>before <code>main</code> (or on first use, for a static local)</td><td>after <code>main</code> returns</td></tr><tr><td>Member</td><td><code>Disk disk;</code> inside StorageNode</td><td>with its enclosing object</td><td>with its enclosing object</td></tr></table>
+
+</div>

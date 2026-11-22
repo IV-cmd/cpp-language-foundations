@@ -1,0 +1,5 @@
+<div class="card ">
+<div class="title">The life of one local object</div>
+<div class="row" style=""><div class="cell gray" style="flex:1;min-width:0px"><div class="big"><code>before object</code></div><div class="small">execution reaches the block</div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell green" style="flex:1;min-width:0px"><div class="big">constructor</div><div class="small"><code>StorageNode node("fst-01");</code> the object's lifetime starts</div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell blue" style="flex:1;min-width:0px"><div class="big"><code>after object, doing work</code></div><div class="small">the object is usable</div></div></div><div class="arrow">↓</div><div class="row" style=""><div class="cell orange" style="flex:1;min-width:0px"><div class="big">destructor</div><div class="small">the closing <code>}</code> is reached, lifetime ends</div></div></div>
+<div class="caption">For a local object both ends are fixed by the code: constructed at its declaration, destroyed at the end of its block. No garbage collector decides when.</div>
+</div>
